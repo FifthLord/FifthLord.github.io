@@ -3,12 +3,9 @@
    grid-area: content;
    background-color: rgb(42, 139, 209);
 }
-.content img {
+.titleImage {
    width: 1040px;
 }
-.item {
-   color: red;
-}
-.posts{
-   
+.myAvatarImage {
+   width: 300px;
 }
