@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
    return (
-      <div className={s.content}>
+      <div>
          My posts
          <div >
             <textarea></textarea>
@@ -12,8 +12,8 @@ const MyPosts = () => {
             <button>Remove</button>
          </div>
          <div className={s.posts}>
-            <Post message="Hi, how are you?" likeValye="5" />
-            <Post message="It's my first post" likeValye="10" />
+            <Post message="Hi, how are you?" likesCount="5" />
+            <Post message="It's my first post" likesCount="10" />
          </div>
       </div>
    );
