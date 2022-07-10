@@ -1,32 +1,13 @@
 
 .wrapper {
+   margin: 0 auto;
    display: grid;
+   /* width: 1200px; */
    grid-template-areas: 
       "header header"
       "nav content";
    grid-template-rows: 60px 1fr;
    grid-template-columns: 2fr 10fr;
-   grid-gap: 10px;
+   /* grid-gap: 10px; */
 }
 
-.header {
-   grid-area: header;
-   background-color: rgb(76, 194, 76);
-
-}
-.header img {
-   width: 50px;
-}
-.nav {
-   grid-area: nav;
-   background-color: rgb(215, 143, 34);
-
-}
-
-.content {
-   grid-area: content;
-   background-color: rgb(42, 139, 209);
-}
-.content img {
-   width: 1040px;
-}

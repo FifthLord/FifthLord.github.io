@@ -3,14 +3,14 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import ProfileContentArea from "./components/ProfileContentArea";
+import Profile from "./components/Profile";
 
 const App = () => {
    return (
       <div className="wrapper">
          <Header />
          <Navbar />
-         <ProfileContentArea />
+         <Profile />
       </div >
    );
 }
