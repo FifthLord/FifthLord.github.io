@@ -5,20 +5,21 @@
 }
 
 .dialogsItems {
-   padding: 10px;
+   padding: 5px;
 }
 
 .dialog {
+   padding: 5px;
 
 }
 .dialog.active {
  color: rgb(255, 243, 80);
 }
 
-.massages {
-   padding: 10px;
+.messages {
+   padding: 5px;
 }
 
-.massage {
+.message {
 
 }
