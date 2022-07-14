@@ -1,5 +1,5 @@
 
-.dialogs {
+.dialogsField {
    display: grid;
    grid-template-columns: 2fr 10fr;
 }
@@ -9,15 +9,19 @@
 }
 
 .dialog {
+   text-decoration: none;
+   color: #fff;
    padding: 5px;
-
 }
-.dialog.active {
- color: rgb(255, 243, 80);
+
+.active {
+   text-decoration: none;
+   color: gold;
 }
 
 .messages {
    padding: 5px;
+   color: #fff;
 }
 
 .message {

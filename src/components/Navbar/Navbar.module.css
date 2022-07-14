@@ -1,7 +1,7 @@
 
 .nav {
    grid-area: nav;
-   background-color: rgb(215, 143, 34);
+   background-color: rgb(215, 109, 34);
    padding: 20px;
 }
 
@@ -11,6 +11,7 @@
 }
 
 .active {
+   margin: -5px;
    text-decoration: none;
-   color: rgb(89, 6, 172);
+   color: gold;
 }
