@@ -24,6 +24,7 @@ let state = {
          { id: 3, message: 'Yo' },
       ],
    },
+   // props arrays for App/Friends/Friend
    friendsPage: {
       friends: [
          { id: 1, name: 'Dimych' },

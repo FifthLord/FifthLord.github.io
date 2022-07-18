@@ -1,8 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Friend from "../Friends/Friend/Friend";
 import s from "./Navbar.module.css";
 
-const Navbar = () => {
+
+const Navbar = (props) => {
+   /*
+      let friendsElements = props.navbarPage.friends
+         .map((f) => <Friend name={f.name} id={f.id} />)
+   */
+   // add {friendsElements} in NavLink to="friends" if u wont list with friends in navbar
    return (
       <nav className={s.nav}>
          <div>
@@ -21,7 +28,9 @@ const Navbar = () => {
             <NavLink to="/settings" className={navData => navData.isActive ? s.active : s.item}>Settings</NavLink>
          </div>
          <div>
-            <NavLink to="/friends" className={navData => navData.isActive ? s.active : s.item}>Friends</NavLink>
+            <NavLink to="/friends" className={navData => navData.isActive ? s.active : s.item}>
+               Friends
+            </NavLink>
          </div>
       </nav>
    );
