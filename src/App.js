@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Friends from "./components/Friends/Friends.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
@@ -25,6 +26,7 @@ const App = (props) => {
                   <Route path="/news" element={<News />} />
                   <Route path="/music" element={<Music />} />
                   <Route path="/settings" element={<Settings />} />
+                  <Route path="/friends/*" element={<Friends friendsPage={props.state.friendsPage} />} />
                </Routes>
             </div>
          </div >

@@ -1,0 +1,20 @@
+
+.friendsField {
+   display: grid;
+   grid-template-columns: 2fr 10fr;
+}
+
+.friendsItems {
+   padding: 5px;
+}
+
+.friend {
+   text-decoration: none;
+   color: #fff;
+   padding: 5px;
+}
+
+.active {
+   text-decoration: none;
+   color: gold;
+}
