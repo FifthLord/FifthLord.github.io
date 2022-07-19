@@ -7,15 +7,20 @@ import state from './redux/state.js'
 import { addPost } from './redux/state.js'
 import { BrowserRouter } from "react-router-dom";
 
+let rerenderEntireTree = () => {
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-   <BrowserRouter>
-      <React.StrictMode>
-         <App state={state} addPost={addPost} />
-      </React.StrictMode>
-   </BrowserRouter>
-);
+   const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(
+      <BrowserRouter>
+         <React.StrictMode>
+            <App state={state} addPost={addPost} />
+         </React.StrictMode>
+      </BrowserRouter>
+   );
+}
+
+rerenderEntireTree();
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
