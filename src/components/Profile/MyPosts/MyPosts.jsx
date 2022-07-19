@@ -8,12 +8,13 @@ const MyPosts = (props) => {
       .map((p) => {
          return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
       })
+
    // add Ref in DOM through VirtualDOM 
    let newPostElement = React.createRef();
-   // read current(текущего) velue from VirtualDOM
+
    let addPost = () => {
       let text = newPostElement.current.value;
-      alert(text);
+      props.addPost(text);
    }
 
    return (
