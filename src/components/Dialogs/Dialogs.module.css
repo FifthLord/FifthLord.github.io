@@ -20,9 +20,23 @@
 }
 
 .messages {
+ /*
+   display: flex;
+   flex-direction: column;
+*/
    color: #fff;
 }
 
 .message {
+   /*
+   flex: 1 1 auto;
+   */
+}
+
+.textarea {
+
+}
+
+.button {
 
 }
