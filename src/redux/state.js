@@ -24,6 +24,7 @@ let state = {
          { id: 2, message: 'How are u?' },
          { id: 3, message: 'Yo' },
       ],
+      newMessageText: 'write some text',
    },
    // props arrays for App/Friends/Friend
    friendsPage: {
@@ -38,6 +39,7 @@ let state = {
    },
 }
 
+//addPost block start
 export let addPost = () => {
    let newPost = {
       id: 3,
@@ -54,5 +56,26 @@ export let updateNewPostText = (newText) => {
    state.profilePage.newPostText = newText;
    rerenderEntireTree(state);
 }
+//addPost block end
+
+
+//addMessage block start
+export let sendMessage = () => {
+   let newMessage = {
+      id: 4,
+      message: state.dialogsPage.newMessageText,
+   };
+
+   state.dialogsPage.messages.push(newMessage);
+   state.dialogsPage.newMessageText = '';
+   rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+   state.dialogsPage.newMessageText = newText;
+   rerenderEntireTree(state);
+}
+//addMessage block end
+
 
 export default state;

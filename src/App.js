@@ -21,7 +21,11 @@ const App = (props) => {
          <Navbar navbarPage={props.state.friendsPage} />
          <div className="content" >
             <Routes>
-               <Route path="/dialogs/*" element={<Dialogs dialogsPage={props.state.dialogsPage} />} />
+               <Route path="/dialogs/*" element={<Dialogs
+                  dialogsPage={props.state.dialogsPage}
+                  sendMessage={props.sendMessage}
+                  updateNewMessageText={props.updateNewMessageText}
+               />} />
                <Route path="/profile" element={<Profile
                   profilePage={props.state.profilePage}
                   addPost={props.addPost}
@@ -37,8 +41,6 @@ const App = (props) => {
 
    );
 }
-
-
 
 
 export default App;

@@ -14,11 +14,15 @@ const Dialogs = (props) => {
 
    // add Ref in DOM through VirtualDOM 
    let newMessageElement = React.createRef();
-   // read current(текущего) velue from VirtualDOM
-   let sendNewMessage = () => {
+
+   let sendMessage = () => {
+      props.sendMessage();
+   };
+
+   let onMessageChange = () => {
       let text = newMessageElement.current.value;
-      alert(text);
-   }
+      props.updateNewMessageText(text);
+   };
 
    return (
       <div className={s.dialogsField}>
@@ -28,10 +32,14 @@ const Dialogs = (props) => {
          <div className={s.messages}>
             {messagesElements}
             <div className={s.textarea}>
-               <textarea ref={newMessageElement}></textarea>
+               <textarea
+                  onChange={onMessageChange}
+                  ref={newMessageElement}
+                  value={props.dialogsPage.newMessageText}
+               />
             </div>
             <div className={s.button}>
-               <button onClick={sendNewMessage}>Send New Message</button>
+               <button onClick={sendMessage}>Send New Message</button>
             </div>
          </div>
       </div>
