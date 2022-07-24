@@ -48,7 +48,6 @@ let store = {
       this._callsubscrible = observer //патерн observer Наблюдатель, (pablisher-subscriber)
    },
 
-   // example action { type: 'ADD-POST' }
    dispatch(action) {
       if (action.type === 'ADD-POST') {
          let newPost = {

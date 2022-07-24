@@ -8,7 +8,7 @@ import App from './App';
 import store from './redux/state';
 import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));//Вынес строку из функции rerender
+const root = ReactDOM.createRoot(document.getElementById('root'));//Вынес строку из под функции rerender
 let rerenderEntireTree = (state) => {
    root.render(
       <BrowserRouter>
@@ -16,9 +16,6 @@ let rerenderEntireTree = (state) => {
             <App
                state={state}
                dispatch={store.dispatch.bind(store)}
-            //updateNewPostText={store.updateNewPostText.bind(store)}
-            //sendMessage={store.sendMessage.bind(store)}
-            //updateNewMessageText={store.updateNewMessageText.bind(store)}
             />
          </React.StrictMode>
       </BrowserRouter>
@@ -33,3 +30,4 @@ store.subscribe(rerenderEntireTree);
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
