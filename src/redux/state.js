@@ -1,4 +1,10 @@
 
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
+
 let store = {
    _state: {
       // props array for App/Profile/MyPosts/Post
@@ -49,7 +55,7 @@ let store = {
    },
 
    dispatch(action) {
-      if (action.type === 'ADD-POST') {
+      if (action.type === ADD_POST) {
          let newPost = {
             id: 3,
             message: this._state.profilePage.newPostText,
@@ -60,10 +66,10 @@ let store = {
          this._state.profilePage.newPostText = '';
          this._callsubscrible(this._state);
 
-      } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      } else if (action.type === UPDATE_NEW_POST_TEXT) {
          this._state.profilePage.newPostText = action.newText;
          this._callsubscrible(this._state);
-      } else if (action.type === 'SEND-MESSAGE') {
+      } else if (action.type === SEND_MESSAGE) {
          let newMessage = {
             id: 4,
             message: this._state.dialogsPage.newMessageText,
@@ -72,13 +78,40 @@ let store = {
          this._state.dialogsPage.messages.push(newMessage);
          this._state.dialogsPage.newMessageText = '';
          this._callsubscrible(this._state);
-      } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
          this._state.dialogsPage.newMessageText = action.newText;
          this._callsubscrible(this._state);
       }
    }
-
 }
+
+//ActionCreator funktions
+export const addPostActionCreator = () => {
+   return {
+      type: ADD_POST,
+   }
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+   return {
+      type: UPDATE_NEW_POST_TEXT,
+      newText: text,
+   }
+}
+
+export const sendMessageActionCreator = () => {
+   return {
+      type: SEND_MESSAGE,
+   }
+}
+
+export const updateNewMessageTextActionCreator = (text) => {
+   return {
+      type: UPDATE_NEW_MESSAGE_TEXT,
+      newText: text,
+   }
+}
+
 
 
 export default store;
