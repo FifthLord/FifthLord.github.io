@@ -44,7 +44,9 @@ let store = {
          ],
       },
    },
-   _callsubscrible() { },
+   _callsubscrible() {
+      console.log('State changed');
+   },
 
    getState() {
       return this._state;
