@@ -10,7 +10,6 @@ const MyPosts = (props) => {
       return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
    })
 
-   // add Ref in DOM through VirtualDOM 
    let newPostElement = React.createRef();
 
    let onAddPost = () => {

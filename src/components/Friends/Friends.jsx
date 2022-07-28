@@ -4,6 +4,8 @@ import s from "./Friends.module.css";
 
 const Friends = (props) => {
 
+   //let state = props.store.getState();
+
    let friendsElements = props.friendsPage.friends
       .map((f) => <Friend name={f.name} id={f.id} />)
 
