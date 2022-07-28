@@ -1,31 +1,25 @@
+
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/profileReducer"
 
 
 const MyPosts = (props) => {
 
-   let postsElements = props.posts
-      .map((p) => {
-         return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
-      })
+   let postsElements = props.posts.map((p) => {
+      return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
+   })
 
    // add Ref in DOM through VirtualDOM 
    let newPostElement = React.createRef();
 
-   let addPost = () => {
-      props.dispatch(addPostActionCreator())
+   let onAddPost = () => {
+      props.addPost();
    };
 
    let onPostChange = () => {
       let text = newPostElement.current.value;
-      /*let action = {
-         type: 'UPDATE-NEW-POST-TEXT',
-         newText: text,
-      };*/
-      let action = updateNewPostTextActionCreator(text);
-      props.dispatch(action)
+      props.updateNewPostText(text)
    };
 
    return (
@@ -40,7 +34,7 @@ const MyPosts = (props) => {
                />
             </div>
             <div>
-               <button onClick={addPost}>Add post</button>
+               <button onClick={onAddPost}>Add post</button>
             </div>
          </div>
          <div className={s.postsItems}>
