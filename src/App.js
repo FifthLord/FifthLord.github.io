@@ -27,7 +27,7 @@ const App = (props) => {
                //dispatch={props.dispatch}
                />} />
                <Route path="/profile" element={<Profile
-                  store={props.store}
+               //store={props.store}
                //profilePage={props.state.profilePage}
                //dispatch={props.dispatch}
                />} />
@@ -35,8 +35,8 @@ const App = (props) => {
                <Route path="/music" element={<Music />} />
                <Route path="/settings" element={<Settings />} />
                <Route path="/friends/*" element={<Friends
-                  //store={props.store}
-                  friendsPage={props.state.friendsPage}
+                  store={props.store}
+               //friendsPage={props.state.friendsPage}
                />} />
             </Routes>
          </div>

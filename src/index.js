@@ -7,18 +7,21 @@ import './index.css';
 import App from './App';
 import store from './redux/reduxStore';
 import { BrowserRouter } from "react-router-dom";
+import StoreContext from './StoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));//Вынес строку из под функции rerender
 let rerenderEntireTree = (state) => {
    root.render(
       <BrowserRouter>
-         <React.StrictMode>
-            <App
-               state={state}
-               dispatch={store.dispatch.bind(store)}
-               store={store}
-            />
-         </React.StrictMode>
+         <StoreContext.Provider value={store}>
+            <React.StrictMode>
+               <App
+                  state={state}
+                  dispatch={store.dispatch.bind(store)}
+                  store={store}
+               />
+            </React.StrictMode>
+         </StoreContext.Provider>
       </BrowserRouter>
    );
 }

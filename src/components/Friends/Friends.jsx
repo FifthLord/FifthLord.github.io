@@ -4,9 +4,9 @@ import s from "./Friends.module.css";
 
 const Friends = (props) => {
 
-   //let state = props.store.getState();
+   let state = props.store.getState();
 
-   let friendsElements = props.friendsPage.friends
+   let friendsElements = state.friendsPage.friends
       .map((f) => <Friend name={f.name} id={f.id} />)
 
    return (
