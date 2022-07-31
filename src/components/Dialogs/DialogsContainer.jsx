@@ -18,21 +18,23 @@ const DialogsContainer = (props) => {
    };
 
    let onMessageChange = (text) => {
-      //let text = newMessageElement.current.value;
-      /*props.dispatch({
-         type: 'UPDATE-NEW-MESSAGE-TEXT',
-         newText: text,
-      })*/
+      /*
+      let text = newMessageElement.current.value;
+      props.dispatch({
+      type: 'UPDATE-NEW-MESSAGE-TEXT',
+      newText: text,
+      })
+      */
       let action = updateNewMessageTextActionCreator(text);
       props.store.dispatch(action)
    };
-
    return (
       <Dialogs
          updateNewMessageText={onMessageChange}
          sendMessage={sendMessage}
          dialogsPage={state.dialogsPage}
-      />);
+      />
+   );
 }
 
 export default DialogsContainer;
