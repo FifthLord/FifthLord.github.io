@@ -4,16 +4,16 @@ import s from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = (props) => {
+const Profile = () => {
 
    return (
       <div className={s.profile}>
          <ProfileInfo />
          <MyPostsContainer
-            store={props.store}
-            posts={props.profilePage.posts}
-            newPostText={props.profilePage.newPostText}
-            dispatch={props.dispatch}
+         //store={props.store}
+         //posts={props.profilePage.posts}
+         //newPostText={props.profilePage.newPostText}
+         //dispatch={props.dispatch}
          />
       </div>
    );
