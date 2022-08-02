@@ -2,9 +2,10 @@ import React from "react";
 
 import './App.css';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Profile from "./components/Profile/Profile";
+import Users from "./components/Users/Users";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -21,16 +22,10 @@ const App = (props) => {
          <Navbar navbarPage={props.state.friendsPage} />
          <div className="content" >
             <Routes>
-               <Route path="/dialogs/*" element={<DialogsContainer
-               //store={props.store}
-               //dialogsPage={props.state.dialogsPage}
-               //dispatch={props.dispatch}
-               />} />
-               <Route path="/profile" element={<Profile
-               //store={props.store}
-               //profilePage={props.state.profilePage}
-               //dispatch={props.dispatch}
-               />} />
+               <Route path="/dialogs/*" element={<DialogsContainer />} />
+               <Route path="/profile" element={<Profile />} />
+               <Route path="/users" element={<Users />} />
+
                <Route path="/news" element={<News />} />
                <Route path="/music" element={<Music />} />
                <Route path="/settings" element={<Settings />} />
