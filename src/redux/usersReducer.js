@@ -6,11 +6,12 @@ const SET_USERS = 'SET-USERS';
 
 let initialState = {
    users: [
+      /*
       {
          id: 1,
          photoUrl: 'https://www.idlememe.com/wp-content/uploads/2021/11/polite-cat-meme-idlememe-6.jpg',
          followed: false,
-         fullname: 'Mykola',
+         name: 'Mykola',
          status: "I am a boss",
          location: { city: 'Kyiv', country: 'Ukraine', }
       },
@@ -18,7 +19,7 @@ let initialState = {
          id: 2,
          photoUrl: 'https://external-preview.redd.it/t5IBAQ3gaehTHCIiqINnJZ-BOpsXVkRQQ1tzjS0IP84.jpg?auto=webp&s=ad45db84dfdc35658eba374db5f5de34aabbd555',
          followed: true,
-         fullname: 'Sasha',
+         name: 'Sasha',
          status: "I am a boss too",
          location: { city: 'London', country: 'England', }
       },
@@ -26,11 +27,11 @@ let initialState = {
          id: 3,
          photoUrl: 'https://i.pinimg.com/originals/e8/ec/d4/e8ecd48d9f71e8d75c5c7057105afda4.jpg',
          followed: false,
-         fullname: 'Andrew',
+         name: 'Andrew',
          status: "I am a big boss",
          location: { city: 'Warsaw', country: 'Poland', }
       },
-
+*/
    ],
 };
 
@@ -64,8 +65,7 @@ const usersReducer = (state = initialState, action) => {
 
       case SET_USERS: {
          return {
-            ...state,
-            users: [...state.users, ...action.users],
+            ...state, users: action.users,
          };
       }
 
