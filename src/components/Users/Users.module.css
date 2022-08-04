@@ -1,4 +1,11 @@
 
+.usersWrapper{
+   margin: 5px;
+}
+
+.userProfile{
+   margin: 30px 10px;
+}
 
 .userPhoto {
    width: 150px;
@@ -8,4 +15,23 @@
 
 .userInfo {
    color:aqua;
+}
+
+.pageItems {
+padding: 5px;
+}
+
+.selectedPage {
+   color: gold;
+}
+
+.pageList {
+   font-size: 20px;
+   text-align: center;
+   padding: 10px;
+   color: aqua;
+}
+
+.pageList.span{
+   padding: 20px;
 }
