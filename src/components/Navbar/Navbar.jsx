@@ -8,6 +8,12 @@ const Navbar = (props) => {
    /*
       let friendsElements = props.navbarPage.friends
          .map((f) => <Friend name={f.name} id={f.id} />)
+
+                  <div>
+            <NavLink to="/friends" className={navData => navData.isActive ? s.active : s.item}>
+               Friends
+            </NavLink>
+         </div>
    */
    // add {friendsElements} in NavLink to="friends" if u wont list with friends in navbar
    return (
@@ -30,11 +36,7 @@ const Navbar = (props) => {
          <div>
             <NavLink to="/settings" className={navData => navData.isActive ? s.active : s.item}>Settings</NavLink>
          </div>
-         <div>
-            <NavLink to="/friends" className={navData => navData.isActive ? s.active : s.item}>
-               Friends
-            </NavLink>
-         </div>
+
       </nav>
    );
 }
