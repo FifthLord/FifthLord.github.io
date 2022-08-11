@@ -3,7 +3,6 @@ import Preloader from "../../Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 
 //https://pictr.com/images/2020/11/16/7uD4Bf.jpg
-//{props.profile.photos.large}
 const ProfileInfo = (props) => {
    if (!props.profile) {
       return <Preloader />
