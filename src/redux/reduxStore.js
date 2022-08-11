@@ -7,14 +7,14 @@ import usersReducer from "./usersReducer";
 
 
 
-let redusers = combineReducers({
+let reducers = combineReducers({
    profilePage: profileReducer,
    dialogsPage: dialogsReducer,
    friendsPage: friendsReducer,
    usersPage: usersReducer,
 });
 
-let store = createStore(redusers);
+let store = createStore(reducers);
 
 window.store = store;
 
