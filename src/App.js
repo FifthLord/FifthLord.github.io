@@ -14,16 +14,16 @@ import { Route, Routes } from "react-router-dom";
 
 
 const App = (props) => {
-
    return (
-
       <div className="wrapper">
          <Header />
          <Navbar navbarPage={props.state.friendsPage} />
          <div className="content" >
             <Routes>
                <Route path="/dialogs/*" element={<DialogsContainer />} />
-               <Route path="/profile/*" element={<ProfileContainer />} />
+               <Route path="/profile" element={<ProfileContainer />}>
+                  <Route path=":userId" element={<ProfileContainer />} />
+               </Route>
                <Route path="/users" element={<UsersContainer />} />
 
                <Route path="/news" element={<News />} />
@@ -36,7 +36,6 @@ const App = (props) => {
             </Routes>
          </div>
       </div >
-
    );
 }
 
