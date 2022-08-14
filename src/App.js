@@ -4,7 +4,7 @@ import './App.css';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -16,7 +16,7 @@ import { Route, Routes } from "react-router-dom";
 const App = (props) => {
    return (
       <div className="wrapper">
-         <Header />
+         <HeaderContainer />
          <Navbar navbarPage={props.state.friendsPage} />
          <div className="content" >
             <Routes>
