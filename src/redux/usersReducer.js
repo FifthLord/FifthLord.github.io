@@ -1,4 +1,7 @@
 
+import userAPI from '../api/api';
+
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW ';
 const SET_USERS = 'SET-USERS';
@@ -109,6 +112,7 @@ const usersReducer = (state = initialState, action) => {
    }
 };
 
+
 export const followAC = (userId) => {
    return {
       type: FOLLOW,
@@ -160,4 +164,16 @@ export const toggleFollowingProgressAC = (isFetching, userId) => {
 };
 
 
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+   return (dispatch) => {
+
+      dispatch(toggleIsFetchingAC(true));
+
+      userAPI.getUsers(currentPage, pageSize).then(data => {
+         dispatch(toggleIsFetchingAC(false));
+         dispatch(setUsersAC(data.items));
+         dispatch(setTotalUsersCountAC(data.totalCount));
+      });
+   };
+};
 export default usersReducer;
