@@ -9,43 +9,27 @@ import Preloader from '../Preloader/Preloader';
 import {
    followAC,
    unfollowAC,
-   setUsersAC,
+   //setUsersAC,
    setCurrentPageAC,
-   setTotalUsersCountAC,
-   toggleIsFetchingAC,
+   //setTotalUsersCountAC,
+   //toggleIsFetchingAC,
    toggleFollowingProgressAC,
    getUsersThunkCreator,
 } from "../../redux/usersReducer"
-import userAPI from '../../api/api';
+//import userAPI from '../../api/api';
 
 
 class UsersContainer extends React.Component {
 
    componentDidMount() {
-      this.props.getUsersThunkCreator()
-      /*
-      this.props.toggleIsFetching(true);
-
-      userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-         this.props.toggleIsFetching(false);
-         this.props.setUsers(data.items);
-         this.props.setTotalUsersCount(data.totalCount);
-      });
-      */
+      this.props.getUsers(this.props.currentPage, this.props.pageSize);
    }
 
    onPageChanged = (pageNumber) => {
-      this.props.setCurrentPage(pageNumber);
-      this.props.toggleIsFetching(true);
-
-      userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-         this.props.toggleIsFetching(false);
-         this.props.setUsers(data.items);
-      });
+      this.props.getUsers(pageNumber, this.props.pageSize);
    }
 
    render() {
-
       return <>
          {this.props.isFetching ? <Preloader /> : null}
          <Users
@@ -78,11 +62,29 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
    follow: followAC,
    unfollow: unfollowAC,
-   setUsers: setUsersAC,
+   //setUsers: setUsersAC,
    setCurrentPage: setCurrentPageAC,
-   setTotalUsersCount: setTotalUsersCountAC,
-   toggleIsFetching: toggleIsFetchingAC,
+   //setTotalUsersCount: setTotalUsersCountAC,
+   //toggleIsFetching: toggleIsFetchingAC,
    toggleFollowingProgress: toggleFollowingProgressAC,
-   getUsersThunkCreator: getUsersThunkCreator,
+   getUsers: getUsersThunkCreator,
 })(UsersContainer);
 
+/*
+this.props.toggleIsFetching(true);
+
+userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+   this.props.toggleIsFetching(false);
+   this.props.setUsers(data.items);
+   this.props.setTotalUsersCount(data.totalCount);
+});
+*/
+/*
+this.props.setCurrentPage(pageNumber);
+this.props.toggleIsFetching(true);
+
+userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+   this.props.toggleIsFetching(false);
+   this.props.setUsers(data.items);
+});
+*/

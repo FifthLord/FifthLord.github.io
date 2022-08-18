@@ -173,6 +173,8 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
          dispatch(toggleIsFetchingAC(false));
          dispatch(setUsersAC(data.items));
          dispatch(setTotalUsersCountAC(data.totalCount));
+
+         dispatch(setCurrentPageAC(currentPage));
       });
    };
 };
