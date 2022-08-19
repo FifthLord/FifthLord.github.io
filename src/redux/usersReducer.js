@@ -178,4 +178,35 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
       });
    };
 };
+
+export const follow = (userId) => {
+   return (dispatch) => {
+
+      dispatch(toggleFollowingProgressAC(true, userId));
+      userAPI.follow(userId)
+         .then(response => {
+            if (response.data.resultCode === 0) {
+               dispatch(followAC(userId));
+            };
+            dispatch(toggleFollowingProgressAC(false, userId));
+         });
+   }
+};
+
+export const unfollow = (userId) => {
+   return (dispatch) => {
+
+      dispatch(toggleFollowingProgressAC(true, userId));
+      userAPI.unfollow(userId)
+         .then(response => {
+            if (response.data.resultCode === 0) {
+               dispatch(unfollowAC(userId));
+            };
+            dispatch(toggleFollowingProgressAC(false, userId));
+         });
+   }
+};
+
+
+
 export default usersReducer;
