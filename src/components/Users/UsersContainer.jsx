@@ -16,7 +16,6 @@ import {
    //toggleFollowingProgressAC,
    getUsersThunkCreator,
 } from "../../redux/usersReducer"
-//import userAPI from '../../api/api';
 
 
 class UsersContainer extends React.Component {
