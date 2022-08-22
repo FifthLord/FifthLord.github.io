@@ -7,14 +7,11 @@ import Preloader from '../Preloader/Preloader';
 import {
    followAC,
    unfollowAC,
-   //setUsersAC,
    setCurrentPageAC,
-   //setTotalUsersCountAC,
-   //toggleIsFetchingAC,
-   //toggleFollowingProgressAC,
    getUsersThunkCreator,
-} from "../../redux/usersReducer"
-import { withAuthNavigate } from '../../hoc/withAuthNavigate'
+} from "../../redux/usersReducer";
+import { withAuthNavigate } from '../../hoc/withAuthNavigate';
+import { compose } from "redux";
 
 
 class UsersContainer extends React.Component {
@@ -56,16 +53,13 @@ let mapStateToProps = (state) => {
    }
 };
 
-
-let AuthNavigateComponent = withAuthNavigate(UsersContainer);
-
-export default connect(mapStateToProps, {
-   follow: followAC,
-   unfollow: unfollowAC,
-   //setUsers: setUsersAC,
-   setCurrentPage: setCurrentPageAC,
-   //setTotalUsersCount: setTotalUsersCountAC,
-   //toggleIsFetching: toggleIsFetchingAC,
-   //toggleFollowingProgress: toggleFollowingProgressAC,
-   getUsers: getUsersThunkCreator,
-})(AuthNavigateComponent);
+export default compose(
+   connect(mapStateToProps, {
+      follow: followAC,
+      unfollow: unfollowAC,
+      setCurrentPage: setCurrentPageAC,
+      getUsers: getUsersThunkCreator,
+   }),
+   //* HOC is under this line
+   withAuthNavigate
+)(UsersContainer);
