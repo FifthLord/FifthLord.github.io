@@ -1,43 +1,19 @@
 
-//import React from "react";
 import {
    sendMessageActionCreator,
    updateNewMessageTextActionCreator,
 } from "../../redux/dialogsReducer"
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux"
+import { withAuthNavigate } from '../../hoc/withAuthNavigate'
 
-/*
-const DialogsContainer = (props) => {
-
-   let state = props.store.getState();
-
-   let sendMessage = () => {
-      //props.sendMessage();
-      //props.dispatch({ type: 'SEND-MESSAGE' })
-      props.store.dispatch(sendMessageActionCreator())
-   };
-
-   let onMessageChange = (text) => {
-      let action = updateNewMessageTextActionCreator(text);
-      props.store.dispatch(action)
-   };
-   return (
-      <Dialogs
-         updateNewMessageText={onMessageChange}
-         sendMessage={sendMessage}
-         dialogsPage={state.dialogsPage}
-      />
-   );
-}
-*/
 
 let mapStateToProps = (state) => {
    return {
       dialogsPage: state.dialogsPage,
-      isAuth: state.auth.isAuth,
    }
 };
+
 
 let mapDispatchToProps = (dispatch) => {
    return {
@@ -50,6 +26,10 @@ let mapDispatchToProps = (dispatch) => {
    }
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+//* HOC is under this line
+let AuthNavigateComponent = withAuthNavigate(Dialogs);
+
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent);
 
 export default DialogsContainer;

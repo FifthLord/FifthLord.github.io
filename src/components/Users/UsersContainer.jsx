@@ -1,7 +1,5 @@
 
-
 import React from "react";
-//import * as axios from "axios";
 //import s from './Users.module.css'
 import { connect } from "react-redux";
 import Users from './Users.jsx';
@@ -16,6 +14,7 @@ import {
    //toggleFollowingProgressAC,
    getUsersThunkCreator,
 } from "../../redux/usersReducer"
+import { withAuthNavigate } from '../../hoc/withAuthNavigate'
 
 
 class UsersContainer extends React.Component {
@@ -58,6 +57,8 @@ let mapStateToProps = (state) => {
 };
 
 
+let AuthNavigateComponent = withAuthNavigate(UsersContainer);
+
 export default connect(mapStateToProps, {
    follow: followAC,
    unfollow: unfollowAC,
@@ -67,4 +68,4 @@ export default connect(mapStateToProps, {
    //toggleIsFetching: toggleIsFetchingAC,
    //toggleFollowingProgress: toggleFollowingProgressAC,
    getUsers: getUsersThunkCreator,
-})(UsersContainer);
+})(AuthNavigateComponent);
