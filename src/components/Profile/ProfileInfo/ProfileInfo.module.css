@@ -9,3 +9,6 @@
 .descriptionBlock {
    padding: 10px;
 }
+.status {
+   color: rgb(60, 255, 0);
+}
