@@ -9,10 +9,6 @@ const ProfileInfo = (props) => {
       return <Preloader />
    }
 
-   /*<div>
-      <img className={s.titleImage} src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img/https://northernhorizon.no/wp-content/uploads/2016/04/02.03.19_NorthernHorizon-35.jpg"
-         alt="headerBackground" />
-   </div>*/
    return (
       <div>
 
@@ -20,7 +16,10 @@ const ProfileInfo = (props) => {
             <img className={s.myAvatarImage}
                src={props.profile.photos.large}
                alt="userAvatar" />
-            <ProfileStatus status={"Hello everyone"} />
+            <ProfileStatus
+               status={props.status}
+               updateStatus={props.updateStatus}
+            />
          </div>
       </div>
    );

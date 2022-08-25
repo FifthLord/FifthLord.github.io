@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import s from "./Profile.module.css";
-import { getUserProfileThunkCreator } from '../../redux/profileReducer';
+import { getUserProfileThunkCreator, getStatusTC, updateStatusTC } from '../../redux/profileReducer';
 import { useParams } from 'react-router-dom';
 //import { withAuthNavigate } from '../../hoc/withAuthNavigate'
 import { compose } from "redux";
@@ -23,13 +23,19 @@ class ProfileContainer extends React.Component {
       if (!userId) {
          userId = 2;
       }
+
       this.props.getUserProfileThunkCreator(userId);
+      this.props.getStatusTC(userId);
    }
 
    render() {
       return (
          <div className={s.profile}>
-            <Profile {...this.props} />
+            <Profile {...this.props}
+               profile={this.props.profile}
+               status={this.props.status}
+               updateStatus={this.props.updateStatusTC}
+            />
          </div>
       );
    }
@@ -38,11 +44,12 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
    profile: state.profilePage.profile,
+   status: state.profilePage.status,
 });
 
 
 export default compose(
-   connect(mapStateToProps, { getUserProfileThunkCreator }),
+   connect(mapStateToProps, { getUserProfileThunkCreator, getStatusTC, updateStatusTC }),
    withRouter,
    //* HOC is under this line
    //withAuthNavigate
