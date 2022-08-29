@@ -4,8 +4,7 @@ import React from "react";
 import s from './Users.module.css'
 import userDefaultPhoto from '../../../src/assets/img/animals-smiley.png'
 import { NavLink } from "react-router-dom";
-//import * as axios from "axios";
-//import userAPI from '../../api/api';
+
 
 let Users = (props) => {
 

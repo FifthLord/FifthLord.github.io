@@ -3,7 +3,7 @@ import React from "react";
 //import s from './Users.module.css'
 import { connect } from "react-redux";
 import Users from './Users.jsx';
-import Preloader from '../Preloader/Preloader';
+import Preloader from '../common/Preloader/Preloader';
 import {
    followAC,
    unfollowAC,
