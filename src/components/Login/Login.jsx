@@ -1,8 +1,11 @@
 import React from "react";
-//import { NavLink } from "react-router-dom";
 import s from "./Login.module.css";
 import { Field, reduxForm } from 'redux-form';
+import { required, maxLengthCreator } from "../../utils/validators/validators";
+import { Input } from "../common/FormsControls/FormsControls";
 
+
+const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = (props) => {
    return (
@@ -11,17 +14,19 @@ const LoginForm = (props) => {
             <Field
                placeholder={"Login"}
                name={"login"}
-               component={"input"} />
+               component={Input}
+               validate={[required, maxLength30]} />
          </div>
          <div>
             <Field
                placeholder={"Password"}
                name={"password"}
-               component={"input"} />
+               component={Input}
+               validate={[required, maxLength30]} />
          </div>
          <div className={s.checkbox}>
             <Field
-               component={"input"}
+               component={Input}
                name={"rememberMe"}
                type={"checkbox"} /> remember me
          </div>
