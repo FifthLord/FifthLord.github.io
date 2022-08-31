@@ -28,13 +28,14 @@ const authReducer = (state = initialState, action) => {
    }
 };
 
-export const setAuthUserDataAC = (id, email, login) => {
+export const setAuthUserDataAC = (id, email, login, isAuth) => {
    return {
       type: SET_USER_DATA,
       data: {
          id,
          email,
          login,
+         isAuth,
       },
    }
 };
@@ -45,7 +46,29 @@ export const getAuthUserDataThunkCreator = () => {
          .then(response => {
             if (response.data.resultCode === 0) {
                let { email, id, login, } = response.data.data;
-               dispatch(setAuthUserDataAC(email, id, login,));
+               dispatch(setAuthUserDataAC(email, id, login, true));
+            }
+         });
+   }
+}
+
+export const loginTC = (email, password, rememberMe,) => {
+   return (dispatch) => {
+      authAPI.login(email, password, rememberMe)
+         .then(response => {
+            if (response.data.resultCode === 0) {
+               dispatch(getAuthUserDataThunkCreator());
+            }
+         });
+   }
+}
+
+export const logoutTC = () => {
+   return (dispatch) => {
+      authAPI.logout()
+         .then(response => {
+            if (response.data.resultCode === 0) {
+               dispatch(setAuthUserDataAC(null, null, null, false));
             }
          });
    }

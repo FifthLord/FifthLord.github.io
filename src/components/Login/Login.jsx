@@ -3,6 +3,11 @@ import s from "./Login.module.css";
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from "../../utils/validators/validators";
 import { Input } from "../common/FormsControls/FormsControls";
+import { connect } from "react-redux"
+import {
+   loginTC,
+   logoutTC,
+} from '../../redux/authReducer'
 
 
 const maxLength30 = maxLengthCreator(30);
@@ -12,8 +17,8 @@ const LoginForm = (props) => {
       <form onSubmit={props.handleSubmit}>
          <div>
             <Field
-               placeholder={"Login"}
-               name={"login"}
+               placeholder={"Email"}
+               name={"email"}
                component={Input}
                validate={[required, maxLength30]} />
          </div>
@@ -43,16 +48,22 @@ const LoginReduxForm = reduxForm({
 
 
 const Login = (props) => {
+
+   const onSubmit = (formData) => {
+      props.login(formData.email,
+         formData.password,
+         formData.rememberMe)
+   }
+
    return (
       <div>
          <h1 className={s.login}>
             LOGIN
          </h1>
-         <LoginReduxForm />
+         <LoginReduxForm onSubmit={onSubmit} />
       </div>
    );
 }
 
 
-export default Login;
-
+export default connect(null, { loginTC, logoutTC })(Login);
