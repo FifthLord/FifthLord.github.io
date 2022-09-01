@@ -4,12 +4,11 @@ import { connect } from "react-redux";
 import s from "./Profile.module.css";
 import { getUserProfileThunkCreator, getStatusTC, updateStatusTC } from '../../redux/profileReducer';
 import { useParams } from 'react-router-dom';
-//import { withAuthNavigate } from '../../hoc/withAuthNavigate'
 import { compose } from "redux";
+//import { Navigate } from "react-router-dom";
 
 //!используем Хук - UseParams, он позволяет достучаться до url Но так как нельзя хуки и классы мешать, 
 //!мы берем и заворачиваем наш хук в функцию, далее из функции, которая как раз совпадает с нерабочим withRouter
-
 export function withRouter(Children) {
    return (props) => {
       const match = { params: useParams() };
@@ -21,9 +20,8 @@ class ProfileContainer extends React.Component {
    componentDidMount() {
       let userId = this.props.match.params.userId;
       if (!userId) {
-         userId = 2;
+         userId = this.props.authorizedUserId;
       }
-
       this.props.getUserProfileThunkCreator(userId);
       this.props.getStatusTC(userId);
    }
@@ -45,6 +43,8 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
    profile: state.profilePage.profile,
    status: state.profilePage.status,
+   authorizedUserId: state.auth.userId,
+   isAuth: state.auth.isAuth,
 });
 
 
