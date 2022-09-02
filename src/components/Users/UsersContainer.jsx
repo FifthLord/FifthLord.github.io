@@ -1,6 +1,5 @@
 
 import React from "react";
-//import s from './Users.module.css'
 import { connect } from "react-redux";
 import Users from './Users.jsx';
 import Preloader from '../common/Preloader/Preloader';
@@ -10,7 +9,7 @@ import {
    setCurrentPageAC,
    getUsersThunkCreator,
 } from "../../redux/usersReducer";
-import { withAuthNavigate } from '../../hoc/withAuthNavigate';
+//import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 import { compose } from "redux";
 
 
@@ -61,5 +60,5 @@ export default compose(
       getUsers: getUsersThunkCreator,
    }),
    //* HOC is under this line
-   withAuthNavigate
+   //withAuthNavigate
 )(UsersContainer);

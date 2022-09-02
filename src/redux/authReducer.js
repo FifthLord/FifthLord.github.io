@@ -42,7 +42,7 @@ export const setAuthUserDataAC = (userId, email, login, isAuth) => {
 
 export const getAuthUserDataThunkCreator = () => {
    return (dispatch) => {
-      authAPI.me()
+      return authAPI.me()
          .then(response => {
             if (response.data.resultCode === 0) {
                let { userId, email, login, } = response.data.data;

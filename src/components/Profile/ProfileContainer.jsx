@@ -21,6 +21,10 @@ class ProfileContainer extends React.Component {
       let userId = this.props.match.params.userId;
       if (!userId) {
          userId = this.props.authorizedUserId;
+         /*
+         if (!userId) {
+            return <Navigate to={"/login"}/>;
+         }*/
       }
       this.props.getUserProfileThunkCreator(userId);
       this.props.getStatusTC(userId);
