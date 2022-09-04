@@ -40,7 +40,6 @@ let Users = (props) => {
                </div>
                <div>
                   {u.followed
-
                      ? <button
                         //* можно сделать на "includes" - disabled={props.followingInProgress.includes(props.id)}
                         disabled={props.followingInProgress.some(id => id === u.id)}
