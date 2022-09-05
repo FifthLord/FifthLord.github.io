@@ -11,6 +11,14 @@ import {
 } from "../../redux/usersReducer";
 //import { withAuthNavigate } from '../../hoc/withAuthNavigate';
 import { compose } from "redux";
+import {
+   getUsers,
+   getPageSize,
+   getTotalUsersCount,
+   getCurrentPage,
+   getIsFetching,
+   getFollowingInProgress,
+} from "../../redux/usersSelectors";
 
 
 class UsersContainer extends React.Component {
@@ -41,6 +49,19 @@ class UsersContainer extends React.Component {
    }
 }
 
+
+let mapStateToProps = (state) => {
+   return {
+      users: getUsers(state),
+      pageSize: getPageSize(state),
+      totalUsersCount: getTotalUsersCount(state),
+      currentPage: getCurrentPage(state),
+      isFetching: getIsFetching(state),
+      followingInProgress: getFollowingInProgress(state),
+   }
+};
+
+/*
 let mapStateToProps = (state) => {
    return {
       users: state.usersPage.users,
@@ -50,7 +71,7 @@ let mapStateToProps = (state) => {
       isFetching: state.usersPage.isFetching,
       followingInProgress: state.usersPage.followingInProgress,
    }
-};
+};*/
 
 export default compose(
    connect(mapStateToProps, {
