@@ -5,31 +5,28 @@ import Post from "./Post/Post";
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
-import { PureComponent } from "react";
 
 
-class MyPosts extends PureComponent {
+const MyPosts = React.memo((props) => {
+   let postsElements = props.posts.map((p) => {
+      return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
+   })
 
-   render() {
-      let postsElements = this.props.posts.map((p) => {
-         return (<Post message={p.message} id={p.id} likesCount={p.likesCount} />);
-      })
+   let onAddPost = (values) => {
+      props.addPost(values.newPostText);
+   };
 
-      let onAddPost = (values) => {
-         this.props.addPost(values.newPostText);
-      };
-
-      return (
-         <div className={s.postsBlock}>
-            <h3>My posts</h3>
-            <AddPostReduxForm onSubmit={onAddPost} />
-            <div className={s.postsItems}>
-               {postsElements}
-            </div>
+   return (
+      <div className={s.postsBlock}>
+         <h3>My posts</h3>
+         <AddPostReduxForm onSubmit={onAddPost} />
+         <div className={s.postsItems}>
+            {postsElements}
          </div>
-      );
-   }
-}
+      </div>
+   );
+});
+
 
 const maxLength30 = maxLengthCreator(30);
 
