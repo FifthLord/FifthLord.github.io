@@ -29,31 +29,6 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState());
 
-//старая версия rerender (Без нее не пашет)
-/*
-let rerenderEntireTree = (state) => {
-   root.render(
-      <BrowserRouter>
-         <React.StrictMode>
-            <Provider store={store}>
-               <App
-                  state={state} //без него не рендериться страница ВТФ. 
-               //dispatch={store.dispatch.bind(store)}
-               //store={store}
-               />
-            </Provider>
-         </React.StrictMode>
-      </BrowserRouter>
-   );
-}
-
-//rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-   let state = store.getState()
-   rerenderEntireTree(state);
-});
-*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
