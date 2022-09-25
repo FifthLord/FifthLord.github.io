@@ -61,7 +61,7 @@ const Login = (props) => {
 
    if (props.isAuth) {
       //!Вместо Redirect
-      return <Navigate replace to={'/profile'} />
+      return <Navigate replace to={'/users'} />
    }
 
    return (

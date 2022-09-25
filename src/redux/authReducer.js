@@ -50,32 +50,29 @@ export const getAuthUserDataThunkCreator = () => async (dispatch) => {
    }
 }
 
-export const login = (email, password, rememberMe) => {
-   return (dispatch) => {
-      authAPI.login(email, password, rememberMe)
-         .then(response => {
-            if (response.data.resultCode === 0) {
-               dispatch(getAuthUserDataThunkCreator());
-            } else {
-               let message = response.data.messages.length > 0
-                  ? response.data.messages[0]
-                  : "Some error";
-               dispatch(stopSubmit("login", { _error: message }));
-            }
-         });
+export const login = (email, password, rememberMe) => async (dispatch) => {
+
+   let response = await authAPI.login(email, password, rememberMe);
+
+   if (response.data.resultCode === 0) {
+      dispatch(getAuthUserDataThunkCreator());
+   } else {
+      let message = response.data.messages.length > 0
+         ? response.data.messages[0]
+         : "Some error";
+      dispatch(stopSubmit("login", { _error: message }));
    }
 }
 
-export const logout = () => {
-   return (dispatch) => {
-      authAPI.logout()
-         .then(response => {
-            if (response.data.resultCode === 0) {
-               dispatch(setAuthUserDataAC(null, null, null, false));
-            }
-         });
+export const logout = () => async (dispatch) => {
+
+   let response = await authAPI.logout();
+
+   if (response.data.resultCode === 0) {
+      dispatch(setAuthUserDataAC(null, null, null, false));
    }
 }
+
 
 
 export default authReducer;
