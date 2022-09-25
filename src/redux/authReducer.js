@@ -40,15 +40,13 @@ export const setAuthUserDataAC = (userId, email, login, isAuth) => {
    }
 };
 
-export const getAuthUserDataThunkCreator = () => {
-   return (dispatch) => {
-      return authAPI.me()
-         .then(response => {
-            if (response.data.resultCode === 0) {
-               let { userId, email, login, } = response.data.data;
-               dispatch(setAuthUserDataAC(userId, email, login, true));
-            }
-         });
+export const getAuthUserDataThunkCreator = () => async (dispatch) => {
+
+   let response = await authAPI.me();
+
+   if (response.data.resultCode === 0) {
+      let { userId, email, login, } = response.data.data;
+      dispatch(setAuthUserDataAC(userId, email, login, true));
    }
 }
 
