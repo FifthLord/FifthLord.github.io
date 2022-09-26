@@ -41,7 +41,6 @@ export const setAuthUserDataAC = (userId, email, login, isAuth) => {
 };
 
 export const getAuthUserDataThunkCreator = () => async (dispatch) => {
-
    let response = await authAPI.me();
 
    if (response.data.resultCode === 0) {
@@ -51,7 +50,6 @@ export const getAuthUserDataThunkCreator = () => async (dispatch) => {
 }
 
 export const login = (email, password, rememberMe) => async (dispatch) => {
-
    let response = await authAPI.login(email, password, rememberMe);
 
    if (response.data.resultCode === 0) {
@@ -65,14 +63,12 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-
    let response = await authAPI.logout();
 
    if (response.data.resultCode === 0) {
       dispatch(setAuthUserDataAC(null, null, null, false));
    }
 }
-
 
 
 export default authReducer;
