@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));//Вынес �
 
 let rerenderEntireTree = (state) => {
    root.render(
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
          <React.StrictMode>
             <Provider store={store}>
                <App
