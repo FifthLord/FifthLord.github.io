@@ -1,7 +1,7 @@
 # Single-page social network application
 
 In this project, I learned how to use different approaches in working with single page applications.\
-Created class and functional components, used both local and global state. Added middle layer.\
+Created class and functional components, used both local and global state.\
 Created HOC and container components, as well as other intermediate technologies.
 
 # Languages, principles and technologies in the project
